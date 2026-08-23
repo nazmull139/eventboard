@@ -1,9 +1,9 @@
 import { Bookmark, CalendarDays } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
-
+import { useScheduleContext } from "../context/ScheduleContext";
 
 export default function Navbar() {
-  
+  const {saved} = useScheduleContext();
 
 
 
@@ -32,7 +32,7 @@ export default function Navbar() {
             My Schedule{" "}
             
               <span className="ml-1 rounded-full bg-indigo-600 px-1.5 py-0.5 text-xs text-white">
-                2
+                  {saved.length}
               </span>
            
           </NavLink>
