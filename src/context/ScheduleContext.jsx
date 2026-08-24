@@ -33,11 +33,18 @@ export default function ScheduleContextProvider({children}) {
         setSaved((current) => current.filter((event) => event.id !== id));
       };
 
-   
+      const conflict = (event) =>
+        saved.filter(
+          (savedEvent) =>
+            savedEvent.id !== event.id &&
+            savedEvent.date === event.date &&
+            savedEvent.start < event.end && //  start: "10:00", end: "14:00",
+            event.start < savedEvent.end, // start: "11:00", end: "13:00",
+        );
 
 
     return (
-        <ScheduleContext.Provider value={{saved , isSaved, saveEvent, removeEvent , }}>
+        <ScheduleContext.Provider value={{saved , isSaved, saveEvent, removeEvent , conflict }}>
             {children}
         </ScheduleContext.Provider>
     )
