@@ -1,11 +1,14 @@
 import {
+  AlertTriangle,
   ArrowLeft,
   Bookmark,
   BookmarkCheck,
   CalendarDays,
   MapPin
 } from 'lucide-react';
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import ConflictModal from '../components/ConflictModal';
 import { useScheduleContext } from '../context/ScheduleContext';
 import { events } from '../data/events';
 
@@ -13,7 +16,8 @@ const Detailspage = () => {
 
   const { id } = useParams();
   const event = events.find((item) => item.id === id);
-  const { isSaved, saveEvent, removeEvent } = useScheduleContext();
+  const { isSaved, saveEvent, removeEvent , conflict } = useScheduleContext();
+  const [showConflictModal, setShowConflictModal] = useState(false);
  
 
   if (!event) {
@@ -28,6 +32,7 @@ const Detailspage = () => {
   }
 
   const saved = isSaved(event.id);
+  const clashes = conflict(event)
   
  // console.log(clashes)
 
@@ -36,11 +41,20 @@ const Detailspage = () => {
       removeEvent(event.id);
       return;
     }
+    if (clashes.length > 0) {
+      setShowConflictModal(true);
+      return;
+    }
 
    
 
     saveEvent(event);
   };
+
+  const confirmSave = () => {
+    saveEvent(event);
+    setShowConflictModal(false);
+  }
 
   
 
@@ -78,7 +92,18 @@ const Detailspage = () => {
         <p className="max-w-3xl leading-7 text-slate-600">{event.description}</p>
 
 
-      
+        {clashes.length > 0 && saved && (
+          <div className="mt-6 flex gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-amber-900">
+            <AlertTriangle className="shrink-0" />
+            <div>
+              <b>Schedule conflict</b>
+              <p className="text-sm">
+                This saved event overlaps with {clashes.map((item) => item.title).join(', ')}.
+              </p>
+            </div>
+          </div>
+        )}
+
 
 
 
@@ -92,7 +117,9 @@ const Detailspage = () => {
       </div>
     </article>
 
-
+    {showConflictModal && (
+      <ConflictModal {...{event,setShowConflictModal,clashes,confirmSave}} />
+    )}
 
 
    

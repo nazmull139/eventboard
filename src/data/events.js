@@ -88,7 +88,7 @@ export const events = [
       title: "Product Design Sprint",
       organizer: "Design Circle",
       category: "Workshop",
-      date: "2026-08-29",
+      date: "2026-08-24",
       start: "09:00",
       end: "12:00",
       location: "Gulshan, Dhaka",

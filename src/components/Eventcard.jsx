@@ -1,25 +1,38 @@
-import { Bookmark, BookmarkCheck, CalendarDays, MapPin } from "lucide-react";
+import { AlertTriangle, Bookmark, BookmarkCheck, CalendarDays, MapPin } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useScheduleContext } from "../context/ScheduleContext";
+import ConflictModal from "./ConflictModal";
 
 export default function EventCard({ event }) {
-  const { removeEvent, saveEvent , isSaved  } = useScheduleContext();
-
+  const { removeEvent, saveEvent , isSaved , conflict  } = useScheduleContext();
+  const [showConflictModal, setShowConflictModal] = useState(false);
  
 
-const saved = isSaved(event.id);
+  const saved = isSaved(event.id);
+  const clashes = conflict(event)
+  
+ 
 
   const handleSave = () => {
     if (saved) {
       removeEvent(event.id);
       return;
     }
+    if (clashes.length > 0) {
+      setShowConflictModal(true);
+      return;
+    }
 
- 
+   
+
     saveEvent(event);
+  };
 
-}
-
+  const confirmSave = () => {
+    saveEvent(event);
+    setShowConflictModal(false);
+  }
 
 
 
@@ -46,6 +59,16 @@ const saved = isSaved(event.id);
           </button>
         </div>
 
+        {clashes.length > 0 && saved && (
+          <div className="mb-2 flex gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-2  text-amber-900">
+            <AlertTriangle className="shrink-0" />
+            <div>
+              <b>Schedule conflict</b>
+              
+            </div>
+          </div>
+        )}
+
       
 
         <Link to={`/event/${event.id}`}>
@@ -69,6 +92,10 @@ const saved = isSaved(event.id);
 
       
     </article> 
+
+    {showConflictModal && (
+      <ConflictModal {...{event,setShowConflictModal,clashes,confirmSave}} />
+    )}
     
     </div>
   );
