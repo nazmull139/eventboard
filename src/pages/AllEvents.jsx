@@ -36,7 +36,14 @@ const AllEvents = () => {
 
  
 
-   
+      const upcomingEvents = useMemo(()=>
+        filtered.filter((e) => new Date(e.date) > new Date() ),[filtered]
+                    
+      )
+      const endedEvents = useMemo(()=>
+        filtered.filter((e) => new Date(e.date) < new Date() ),[filtered]
+                    
+      )
 
 
 
@@ -47,10 +54,22 @@ const AllEvents = () => {
     <div className="mb-5 mt-10 flex items-end justify-between">
         <div>
             <h2 className="text-2xl font-black">Upcoming events</h2>
-            <p className="text-sm text-slate-500">{filtered.length} event{filtered.length !== 1 ? 's' : ''} found</p>
+            <p className="text-sm text-slate-500">{upcomingEvents.length} event{upcomingEvents.length !== 1 ? 's' : ''} found</p>
         </div>
     </div>
-    {filtered.length ? <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{filtered.map(event =>
+    {upcomingEvents.length ? <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{upcomingEvents.map(event =>
+        <EventCard key={event.id} event={event} />)}</div> : <EmptyState />}
+
+
+      {/* Ended Events */}
+
+    <div className="mb-5 mt-10 flex items-end justify-between">
+        <div>
+            <h2 className="text-2xl font-black">Ended events</h2>
+            <p className="text-sm text-slate-500">{endedEvents.length} event{endedEvents.length !== 1 ? 's' : ''} found</p>
+        </div>
+    </div>
+    {endedEvents.length ? <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{endedEvents.map(event =>
         <EventCard key={event.id} event={event} />)}</div> : <EmptyState />}
 
 </div>
