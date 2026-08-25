@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import About from "../pages/About";
 import Detailspage from "../pages/Detailspage";
 import Home from "../pages/Home";
 import Layout from "../pages/Layout";
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/saved",
         element: <Schedule/>
+      },
+      {
+        path: "/about",
+        element: <About/>
       },
     
     ],
