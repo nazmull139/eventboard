@@ -99,7 +99,19 @@ export const events = [
     },
   ];
   
-  
+  export function fetchEvents (){
+    return new Promise((reslove , reject)=> {
+      setTimeout(()=> {
+        const shouldFail = false ;
+      if(shouldFail){
+        reject(new Error("Something went wrong."))
+      }else {
+        reslove(events)
+      }
+      }, 1200)
+      
+    })
+  }
   
   
 

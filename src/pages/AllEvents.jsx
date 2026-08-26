@@ -1,12 +1,17 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import EmptyState from '../components/EmptyState';
+import ErrorState from '../components/ErrorState';
 import EventCard from '../components/Eventcard';
 import FilterBar from '../components/FilterBar';
-import { events } from '../data/events';
+import Loading from '../components/Loading';
+import { fetchEvents } from '../data/events';
 
 
 const AllEvents = () => {
 
+  const [eventsData, setEventsData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
 
 
@@ -15,14 +20,32 @@ const AllEvents = () => {
     [date, setDate] = useState('');
 
 
+  useEffect(()=>{
+      setLoading(true);
+      setError(null);
 
- 
+      fetchEvents()
+        .then((result)=>{
+          setEventsData(result);
+          setLoading(false);
+        })
+        .catch((error)=>{
+          setError(error.message);
+          
+        })
+        .finally(()=>{
+          setLoading(false);
+        })
+
+
+  },[])
+  
 
 
 
     const filtered = useMemo(
         () =>
-          events.filter(
+          eventsData.filter(
             (e) =>
               (!q ||
                 `${e.title} ${e.organizer}`
@@ -31,7 +54,7 @@ const AllEvents = () => {
               (category === "All categories" || e.category === category) &&
               (!date || e.date === date)
           ),
-        [q, category, date ]
+        [q, category, date , eventsData ]
       );
 
  
@@ -45,6 +68,14 @@ const AllEvents = () => {
                     
       )
 
+      if (loading) {
+        return <Loading/>
+      }
+    
+      
+      if (error) {
+        return <ErrorState message={error}/>
+      }
 
 
 
