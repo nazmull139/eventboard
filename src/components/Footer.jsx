@@ -5,10 +5,10 @@ const Footer = () => {
   return (
     <footer className="mt-16 border-t bg-slate-950 text-slate-300">
       <div className="mx-auto max-w-7xl px-4 py-12">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 grid-cols-2 lg:grid-cols-4">
 
           {/* Brand */}
-          <div>
+          <div >
             <div className="flex items-center gap-2 text-xl font-black text-white">
               <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-600">
                 <CalendarDays className="h-5 w-5" />
@@ -100,7 +100,13 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <Mail className="mt-0.5 h-5 w-5 shrink-0 text-indigo-400" />
 
-                <span>hello@eventboard.com</span>
+                <span className="sm:hidden">
+    hello@event<br />board.com
+  </span>
+
+  <span className="hidden sm:inline">
+    hello@eventboard.com
+  </span>
               </div>
 
               <div className="flex items-start gap-3">
