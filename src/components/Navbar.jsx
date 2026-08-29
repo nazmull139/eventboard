@@ -12,7 +12,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-white/90 backdrop-blur">
+    <header className="sticky top-0 z-50 shadow-sm bg-white/90 backdrop-blur">
       <div className="mx-auto max-w-7xl px-4">
 
         {/* Main Navbar */}

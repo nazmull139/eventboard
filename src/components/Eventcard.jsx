@@ -39,7 +39,7 @@ export default function EventCard({ event }) {
   
   return (
     <div>
-    <article className="overflow-hidden rounded-2xl border bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+    <article className="overflow-hidden rounded-2xl  bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
       <img src={event.image} className="h-48 w-full object-cover" />
       <div className="p-5">
         <div className="mb-2 flex items-center justify-between">
@@ -59,15 +59,7 @@ export default function EventCard({ event }) {
           </button>
         </div>
 
-        {clashes.length > 0 && saved && (
-          <div className="mb-2 flex gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-2  text-amber-900">
-            <AlertTriangle className="shrink-0" />
-            <div>
-              <b>Schedule conflict</b>
-              
-            </div>
-          </div>
-        )}
+     
 
       
 
@@ -77,8 +69,10 @@ export default function EventCard({ event }) {
           </h3>
         </Link>
         <p className="mt-1 text-sm text-slate-500">by {event.organizer}</p>
-        <div className="mt-4 space-y-2 text-sm text-slate-600">
-          <p>
+
+        <div className="mt-4 space-y-2 flex flex-row justify-between  text-sm text-slate-600">
+          <div>
+            <p>
             <CalendarDays className="mr-2 inline h-4 w-4" />
             {event.date} · {event.start}–{event.end}
           </p>
@@ -86,6 +80,21 @@ export default function EventCard({ event }) {
             <MapPin className="mr-2 inline h-4 w-4" />
             {event.location}
           </p>
+          </div>
+
+          <div>
+          {clashes.length > 0 && saved && (
+          <div className=" flex gap-2  rounded-2xl border border-amber-200 bg-amber-50 p-2  text-amber-900">
+            <AlertTriangle className="shrink-0" />
+            <div>
+              <b>Schedule <br></br> conflict</b>
+              
+            </div>
+          </div>
+        )}
+          </div>
+
+          
         </div>
       </div>
 
