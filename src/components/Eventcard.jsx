@@ -79,7 +79,7 @@ export default function EventCard({ event }) {
           <p className="mt-1 text-sm text-ink-muted">by {event.organizer}</p>
         </div>
 
-        <div className="ticket-perforation my-4" />
+        <div className=" my-4" />
 
         <div className="flex items-end justify-between gap-3 px-5 pb-5">
           <div className="space-y-1.5 font-mono text-xs text-ink-muted">
