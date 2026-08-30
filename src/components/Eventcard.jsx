@@ -46,7 +46,7 @@ export default function EventCard({ event }) {
             <img
               src={event.image}
               alt={event.title}
-              className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+              className="h-full  transition duration-300 group-hover:scale-105"
             />
             <span className={`absolute left-3 top-3 rounded-full px-3 py-1 text-xs font-bold ${style.badge}`}>
               {event.category}
