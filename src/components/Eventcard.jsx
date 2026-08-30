@@ -40,7 +40,7 @@ export default function EventCard({ event }) {
 
   return (
     <div>
-      <article className=" ">
+      <article className="border border-black ">
         <Link to={`/event/${event.id}`} className="">
           <div className="relative h-48 overflow-hidden">
             <img
@@ -57,7 +57,7 @@ export default function EventCard({ event }) {
         <div className="px-5 pt-4">
           <div className="flex items-start justify-between gap-3">
             <Link to={`/event/${event.id}`} className="min-w-0">
-              <h3 className="truncate font-display text-lg font-bold leading-snug transition group-hover:text-cobalt">
+              <h3 className="line-clamp-2 break-words truncate font-display text-lg font-bold leading-snug transition group-hover:text-cobalt">
                 {event.title}
               </h3>
             </Link>
