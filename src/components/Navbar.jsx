@@ -24,7 +24,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line-dark bg-ink">
+    <header className="sticky top-0 z-50 border-b border-line-dark bg-ink backdrop-blur-2xl">
       <div className="mx-auto max-w-7xl px-4">
         {/* Main Navbar */}
         <div className="flex items-center justify-between py-4">

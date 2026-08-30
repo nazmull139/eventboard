@@ -100,12 +100,12 @@ const Footer = () => {
                 <Mail className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
 
                 <span className="sm:hidden">
-    hello@event<br />board.com
-  </span>
+                  hello@event<br />board.com
+                </span>
 
-  <span className="hidden sm:inline">
-    hello@eventboard.com
-  </span>
+                <span className="hidden sm:inline">
+                  hello@eventboard.com
+                </span>
               </div>
 
               <div className="flex items-start gap-3">

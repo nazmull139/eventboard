@@ -29,7 +29,7 @@ body {
   background: var(--color-paper-2);
   font-family: var(--font-body);
   color: var(--color-ink);
-  overflow-x: hidden;
+ 
 }
 
 ::selection {
@@ -43,10 +43,6 @@ body {
   border-radius: 4px;
 }
 
-/* ---------- Ticket signature system ---------- */
-
-/* The dashed tear-line that separates an event image from its details,
-   with two inset "punch" circles that read as a torn perforation. */
 .ticket-perforation {
   position: relative;
   height: 0;
@@ -74,14 +70,13 @@ body {
   right: -30px;
 }
 
-/* Variant for perforations that sit on a plain white page background
-   (event details page) rather than the paper-2 section background. */
+
 .ticket-perforation--on-white::before,
 .ticket-perforation--on-white::after {
   background: var(--color-paper);
 }
 
-/* Stamp-style save toggle: dashed gold ring when idle, filled gold when saved. */
+
 .stamp-btn {
   display: inline-flex;
   align-items: center;
@@ -105,8 +100,8 @@ body {
   color: var(--color-ink);
 }
 
-/* Scalloped "torn ticket" seam used under the hero: ink strip with
-   paper-colored semicircular bites repeating edge-to-edge. */
+
+   
 .ticket-edge {
   height: 22px;
   background-color: var(--color-ink);
@@ -120,7 +115,7 @@ body {
   background-repeat: repeat-x;
 }
 
-/* Wide save CTA on the details page — cobalt when idle, stamped gold once saved. */
+
 .stamp-btn-wide {
   background: var(--color-cobalt);
   color: #fff;
@@ -140,7 +135,7 @@ body {
   color: #fff;
 }
 
-/* Reduced motion respect for any transitions/animations in the app */
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.001ms !important;

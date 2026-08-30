@@ -27,7 +27,7 @@ export default function Schedule() {
             return (
             <article key={e.id} className="flex flex-col gap-0 overflow-hidden rounded-2xl border border-line bg-paper shadow-sm sm:flex-row sm:items-stretch">
 
-            <img src={e.image} alt={e.title} className="h-40 w-full object-cover sm:h-auto sm:w-48" />
+            <img src={e.image} alt={e.title} className="h-40 w-full object-cover  sm:w-48" />
 
             <div className="hidden w-0 border-l-2 border-dashed border-line sm:block" />
 
