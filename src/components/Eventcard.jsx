@@ -40,7 +40,7 @@ export default function EventCard({ event }) {
 
   return (
     <div>
-      <article className=" overflow-hidden rounded-2xl border  bg-paper shadow-sm transition ">
+      <article className=" ">
         <Link to={`/event/${event.id}`} className="">
           <div className="relative h-48 overflow-hidden">
             <img
