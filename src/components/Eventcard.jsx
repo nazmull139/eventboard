@@ -40,13 +40,13 @@ export default function EventCard({ event }) {
 
   return (
     <div>
-      <article className="border border-black ">
-        <Link to={`/event/${event.id}`} className="">
+      <article className="group overflow-hidden rounded-2xl border border-line bg-paper shadow-sm transition hover:-translate-y-1 hover:shadow-[0_24px_50px_-24px_rgba(20,19,31,0.4)]">
+        <Link to={`/event/${event.id}`} className="block">
           <div className="relative h-48 overflow-hidden">
             <img
               src={event.image}
               alt={event.title}
-              className="h-full  transition duration-300 group-hover:scale-105"
+              className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
             />
             <span className={`absolute left-3 top-3 rounded-full px-3 py-1 text-xs font-bold ${style.badge}`}>
               {event.category}
@@ -57,7 +57,7 @@ export default function EventCard({ event }) {
         <div className="px-5 pt-4">
           <div className="flex items-start justify-between gap-3">
             <Link to={`/event/${event.id}`} className="min-w-0">
-              <h3 className="line-clamp-2 break-words truncate font-display text-lg font-bold leading-snug transition group-hover:text-cobalt">
+              <h3 className=" font-display text-lg font-bold leading-snug transition group-hover:text-cobalt">
                 {event.title}
               </h3>
             </Link>
@@ -79,7 +79,7 @@ export default function EventCard({ event }) {
           <p className="mt-1 text-sm text-ink-muted">by {event.organizer}</p>
         </div>
 
-        <div className=" my-4" />
+        <div className="ticket-perforation my-4" />
 
         <div className="flex items-end justify-between gap-3 px-5 pb-5">
           <div className="space-y-1.5 font-mono text-xs text-ink-muted">
