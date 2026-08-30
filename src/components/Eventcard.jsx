@@ -41,7 +41,7 @@ export default function EventCard({ event }) {
   return (
     <div>
       <article className="group overflow-hidden rounded-2xl border border-line bg-paper shadow-sm transition hover:-translate-y-1 hover:shadow-[0_24px_50px_-24px_rgba(20,19,31,0.4)]">
-        <Link to={`/event/${event.id}`} className="block">
+        <Link to={`/event/${event.id}`} className="">
           <div className="relative h-48 overflow-hidden">
             <img
               src={event.image}
