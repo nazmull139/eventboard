@@ -1,17 +1,23 @@
-import React from 'react'
 
 const Banner = () => {
     return (
-        <div>
-            <section className="bg-gradient-to-br from-indigo-700 via-indigo-600 to-violet-600 text-white">
-                <div className="mx-auto max-w-7xl px-4 py-20">
-                    <p className="mb-3 font-bold uppercase tracking-[.2em] text-indigo-200">Discover · Plan · Experience</p>
-                    <h1 className="max-w-3xl text-4xl font-black tracking-tight md:text-6xl">Find events worth showing up for.</h1>
-                    <p className="mt-5 max-w-2xl text-lg text-indigo-100">Explore workshops, tech meetups, sports and cultural experiences. Save your favorites and build your personal schedule.</p>
-                </div>
-            </section>
+        <section className="relative overflow-hidden bg-ink text-white">
+            <div className="mx-auto max-w-7xl px-4 pb-20 pt-16 md:pt-20">
+                <p className="mb-4 font-mono text-xs font-semibold uppercase tracking-[0.3em] text-gold">
+                    Discover · Plan · Experience
+                </p>
+                <h1 className="max-w-3xl font-display text-4xl font-bold leading-[1.08] tracking-tight md:text-6xl">
+                    Find events worth<br className="hidden sm:block" /> showing up for.
+                </h1>
+                <p className="mt-5 max-w-2xl text-base leading-7 text-white/60 md:text-lg">
+                    Explore workshops, tech meetups, sports and cultural experiences around Dhaka.
+                    Save your favorites and build a schedule that doesn't clash.
+                </p>
+            </div>
 
-        </div>
+            {/* torn-ticket edge into the page below */}
+            <div className="ticket-edge" aria-hidden="true" />
+        </section>
     )
 }
 

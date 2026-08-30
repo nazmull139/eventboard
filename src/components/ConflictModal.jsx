@@ -1,5 +1,5 @@
 import {
-    AlertTriangle, X
+  AlertTriangle, X
 } from 'lucide-react';
 import React from 'react';
   

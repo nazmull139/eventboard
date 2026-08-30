@@ -1,23 +1,22 @@
-import { CalendarDays, Mail, MapPin } from "lucide-react";
-import React from "react";
+import { Mail, MapPin, Ticket } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="mt-16 border-t bg-slate-950 text-slate-300">
+    <footer className="mt-16 border-t border-line-dark bg-ink text-white/60">
       <div className="mx-auto max-w-7xl px-4 py-12">
         <div className="grid gap-10 grid-cols-2 lg:grid-cols-4">
 
           {/* Brand */}
           <div >
-            <div className="flex items-center gap-2 text-xl font-black text-white">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-600">
-                <CalendarDays className="h-5 w-5" />
+            <div className="flex items-center gap-2.5 font-display text-xl font-bold text-white">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gold text-ink">
+                <Ticket className="h-5 w-5" strokeWidth={2.25} />
               </div>
 
-              EventBoard
+              Event<span className="text-gold">Board</span>
             </div>
 
-            <p className="mt-4 max-w-xs text-sm leading-6 text-slate-400">
+            <p className="mt-4 max-w-xs text-sm leading-6 text-white/40">
               Discover upcoming events, find interesting activities, and
               organize your personal schedule in one place.
             </p>
@@ -25,7 +24,7 @@ const Footer = () => {
 
           {/* Navigation */}
           <div>
-            <h3 className="font-bold text-white">Explore</h3>
+            <h3 className="font-display text-sm font-bold text-white">Explore</h3>
 
             <ul className="mt-4 space-y-3 text-sm">
               <li>
@@ -59,7 +58,7 @@ const Footer = () => {
 
           {/* Useful links */}
           <div>
-            <h3 className="font-bold text-white">Quick Links</h3>
+            <h3 className="font-display text-sm font-bold text-white">Quick Links</h3>
 
             <ul className="mt-4 space-y-3 text-sm">
               <li>
@@ -93,12 +92,12 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="font-bold text-white">Contact</h3>
+            <h3 className="font-display text-sm font-bold text-white">Contact</h3>
 
             <div className="mt-4 space-y-4 text-sm">
 
               <div className="flex items-start gap-3">
-                <Mail className="mt-0.5 h-5 w-5 shrink-0 text-indigo-400" />
+                <Mail className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
 
                 <span className="sm:hidden">
     hello@event<br />board.com
@@ -110,7 +109,7 @@ const Footer = () => {
               </div>
 
               <div className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-indigo-400" />
+                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
 
                 <span>Dhaka, Bangladesh</span>
               </div>
@@ -120,8 +119,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="mt-10 flex flex-col gap-4 border-t border-slate-800 pt-6 text-sm sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-slate-500">
+        <div className="mt-10 flex flex-col gap-4 border-t border-line-dark pt-6 text-sm sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-white/40">
             © {new Date().getFullYear()} EventBoard. All rights reserved.
           </p>
 
